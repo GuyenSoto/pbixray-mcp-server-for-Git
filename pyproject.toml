@@ -1,0 +1,78 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
+
+[project]
+name = "pbixray-mcp-server"
+version = "0.1.0"
+description = "An MCP server for analyzing Power BI files using PBIXRay"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [
+    {name = "PBIXRay Contributors", email = "your.email@example.com"}
+]
+maintainers = [
+    {name = "PBIXRay Contributors", email = "your.email@example.com"}
+]
+keywords = ["powerbi", "pbix", "analysis", "mcp"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Development Status :: 4 - Beta",
+    "Topic :: Office/Business :: Office Suites",
+    "Topic :: Scientific/Engineering :: Visualization",
+]
+dependencies = [
+    "mcp>=1.2.0",
+    "pbixray>=0.1.0",
+    "numpy>=1.20.0",
+    "pandas>=1.0.0; python_version >= '3.10'",
+    "pandas>=1.0.0,<2.0.0; python_version < '3.10'",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "black>=23.0.0",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/username/pbixray-mcp"
+"Bug Tracker" = "https://github.com/username/pbixray-mcp/issues"
+"Documentation" = "https://github.com/username/pbixray-mcp/docs"
+"Source" = "https://github.com/username/pbixray-mcp"
+
+
+[project.scripts]
+pbixray-mcp-server = "pbixray_server:main"
+
+[tool.hatch.build]
+packages = ["src"]
+
+[tool.black]
+line-length = 127
+target-version = ['py310', 'py311']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+    \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+  | venv
+)/
+'''

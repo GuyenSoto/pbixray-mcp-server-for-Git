@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "pbixray": {
+      "command": "python",
+      "args": ["/path/to/pbixray_server.py"]
+    }
+  }
+}
